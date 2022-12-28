@@ -1,0 +1,114 @@
+$bg: #FFF8ED;
+$greenExp: #0C9288;
+
+
+.exp {
+    width: 100%;
+    max-width: 900px;
+    margin: 50px auto;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: $bg;
+
+}
+
+.pathContainer {
+    width: 100%;
+    max-width: 450px;
+    display: flex;
+    align-items: center;
+    margin-top: 2px;
+    transform: translateX(29px);
+
+    .c-logo {
+        width: 80px;
+        height: 80px;
+        background-color: transparent;
+        border: 1px solid $greenExp;
+        border-radius: 50%;
+        margin-right: 20px;
+        background-size: contain;
+    }
+
+    .path {
+        background-color: $greenExp;
+        width: calc(100% - 100px - 60px);
+        height: 2px;
+        position: relative;
+
+
+        &::before {
+            content: "";
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            left: 0;
+            background-color: $greenExp;
+            top: 50%;
+            transform: translate(-50%, -50%);
+
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: transparent;
+            border-top-left-radius: 30px;
+            border: 2px solid $greenExp;
+            border-right: 0;
+            border-bottom: 0;
+            right: 0;
+            bottom: 0;
+            transform: translateX(100%);
+        }
+
+        .extender {
+            position: absolute;
+            width: 2px;
+            min-height: 20px;
+            background-color: $greenExp;
+            right: 0;
+            bottom: 0;
+            transform: translate(32px, -32px);
+
+            &::after {
+                content: "";
+                position: absolute;
+                width: 30px;
+                height: 30px;
+                background-color: transparent;
+                border-top-left-radius: 30px;
+                border: 2px solid $greenExp;
+                border-right: 0;
+                border-bottom: 0;
+                right: 0;
+                bottom: 0;
+                transform: rotateX(100deg) translate(32px);
+            }
+
+            &::before {
+                content: "";
+                position: absolute;
+                width: 6px;
+                height: 6px;
+                border-radius: 50%;
+                transform: translate(-32px);
+            }
+
+            &.close {
+                &::after {
+                    display: none;
+                    right: 0;
+                    border: 50%;
+                    width: 60px;
+                    height: 60px;
+                }
+            }
+
+        }
+    }
+}
